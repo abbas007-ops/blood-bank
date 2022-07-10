@@ -1,5 +1,10 @@
+import React from "react";
+import Hero from "../../components/Hero/Hero";
+
 const Dashboard = () => {
   return (
+    <React.Fragment>
+      <Hero />
     <div className="container-fluid py-5">
       <div className="container-fluid bg-secondary my-5">
         <div className="container">
@@ -86,6 +91,7 @@ const Dashboard = () => {
         </div>
       </div>
     </div>
+    </React.Fragment>
   );
 };
 

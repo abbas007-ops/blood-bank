@@ -1,7 +1,10 @@
 import React from "react";
+import BannerImage from "../../components/bannerImage/BannerImage";
 
 const Contact = () => {
   return (
+    <React.Fragment>
+      <BannerImage />
     <div className="container-fluid py-5">
       <div className="container">
         <div className="row">
@@ -91,6 +94,7 @@ const Contact = () => {
         </div>
       </div>
     </div>
+    </React.Fragment>
   );
 };
 

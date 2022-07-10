@@ -1,9 +1,12 @@
 import React from "react";
+import BannerImage from "../../components/bannerImage/BannerImage";
 import Card from "../../components/Card/Card";
 
 const About = () => {
   const img_urls = ["team-1.jpg", "team-2.jpg", "team-3.jpg", "team-4.jpg"];
   return (
+    <React.Fragment>
+      <BannerImage />
     <div className="container-fluid py-5">
       <div className="container">
         <div className="row align-items-center">
@@ -112,6 +115,7 @@ const About = () => {
         </div>
       </div>
     </div>
+    </React.Fragment>
   );
 };
 

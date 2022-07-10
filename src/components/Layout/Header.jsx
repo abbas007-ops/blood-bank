@@ -8,7 +8,7 @@ const Header = () => {
   const [toggleNav, setToggleNav] = useState(false);
 
   const handleLogout = () => {
-    localStorage.removeItem("authUser");
+    localStorage.clear();
     navigate("/");
     setUser(undefined);
   };
