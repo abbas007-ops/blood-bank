@@ -1,0 +1,3 @@
+historyApiFallback: {
+    disableDotRule: true
+}

@@ -1,8 +1,10 @@
-import React, { useState } from "react";
+import React, { useEffect, useState } from "react";
 import { Link, NavLink, useNavigate } from "react-router-dom";
 import { user as login } from "../../helpers/api_helper";
+import UserDropdown from "../dropdown/UserDropdown";
 
 const Header = () => {
+  const [userData ,setUserData] = useState("");
   const navigate = useNavigate();
   const [user, setUser] = useState(login);
   const [toggleNav, setToggleNav] = useState(false);
@@ -13,6 +15,11 @@ const Header = () => {
     setUser(undefined);
   };
 
+  useEffect(() => {
+    let localdata = localStorage.getItem("authUser");
+    setUserData(JSON.parse(localdata));
+  },[])
+  console.log(userData);
   return (
     <React.Fragment>
       <div className="container-fluid bg-dark">
@@ -54,7 +61,7 @@ const Header = () => {
           <Link to="/" className="navbar-brand ml-lg-3">
             <h4 className="m-0 text-uppercase text-primary">
               <img
-                src="./favicon.png"
+                src="/favicon.png"
                 className="d-inline-block mx-2 rounded-circle"
                 width="50px"
                 height="50px"
@@ -107,14 +114,11 @@ const Header = () => {
               </>
             ) : null}
             {user ? (
-              <div
-                onClick={() => {
-                  handleLogout();
-                }}
-                className="nav-item nav-link btn btn-outline-primary py-2 px-4 d-none d-lg-block rounded"
-              >
-                Logout
-              </div>
+              // <div
+              //  className="nav-item nav-link btn btn-outline-primary py-2 px-4 d-none d-lg-block rounded"
+              // >
+                <UserDropdown name={userData.email}/>
+              // </div>
             ) : null}
           </div>
         </nav>

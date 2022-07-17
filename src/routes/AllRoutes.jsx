@@ -12,6 +12,7 @@ import LandingPage from "../pages/LandingPage/LandingPage";
 import ForgetPassword from "../pages/Authentication/ForgetPassword";
 import About from "../pages/About/About";
 import Contact from "../pages/Contact/Contact";
+import ResetPassword from "../pages/Authentication/ResetPassword";
 
 const AllRoutes = () => {
   return (
@@ -28,7 +29,9 @@ const AllRoutes = () => {
       <Route path="register" element={<Register />} />
       <Route path="forgot-password" element={<ForgetPassword />} />
       <Route path="/about" element={<About />} />
+      <Route path='/reset_password/:token' element={<ResetPassword />}  />
       <Route path="/" element={<LandingPage />} exact />
+      
 
       {/* TODO 404 Page */}
     </Routes>

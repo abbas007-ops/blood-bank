@@ -1,11 +1,10 @@
 import React from "react";
-import { useNavigate } from "react-router-dom";
 import { Formik,ErrorMessage,Field,Form} from 'formik';
 import * as Yup from 'yup';
 import { ToastContainer, toast } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
 import { post } from "../../helpers/api_helper";
-import { LOGIN } from "../../helpers/url_helper";
+import { FORGET_PASSWORD } from "../../helpers/url_helper";
 import BannerImage from "../../components/bannerImage/BannerImage";
 
 const initialValues = {
@@ -19,7 +18,30 @@ const validationSchema = Yup.object({
 const ForgetPassword = () => {
 
   const onSubmit = async(values) => {
-    console.log("values",values);
+    try {
+      console.log("values",values);
+      let formdata = new FormData();
+      formdata.append("email", values.email);
+      const payload =  formdata;
+  
+      const response = await post(FORGET_PASSWORD, payload)
+      console.log(response);
+      if(response)
+      {
+        toast.success(response.message,{
+          position: "top-right",
+          autoClose: 2000,
+          hideProgressBar: false,
+          closeOnClick: true,
+          pauseOnHover: true,
+          draggable: true,
+          progress: undefined,
+          });
+      }
+  
+    } catch (error) {
+      console.log(error);
+    }
   }
   return (
     <React.Fragment>
@@ -33,7 +55,7 @@ const ForgetPassword = () => {
           <Formik initialValues={initialValues} validationSchema={validationSchema} onSubmit={onSubmit}>     
           <Form>
             <div className="form-group">
-              <label htmtFor="name">Email</label>
+              <label htmlFor="name">Email</label>
               <Field
                 type="text"
                 name="email"
