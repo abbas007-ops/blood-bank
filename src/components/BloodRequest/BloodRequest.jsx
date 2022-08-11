@@ -5,20 +5,23 @@ import * as Yup from 'yup';
 import { ToastContainer, toast } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
 import { post } from "../../helpers/api_helper";
-import { LOGIN } from "../../helpers/url_helper";
+import { REQUEST_BLOOD } from "../../helpers/url_helper";
 
 
 const initialValues = {
   email:'',
   name:'',
   city:'',
+  bloodgroup:''
 }
 
 const validationSchema = Yup.object({
   name:Yup.string().required('Please enter name.'),
   city:Yup.string().required('Please enter city.'),
   email:Yup.string().email("Please enter a valid email.").required('Please enter your email.'),
+  bloodgroup:Yup.string().required('Please select blood group.')
 })
+
 
 
 const BloodRequest = () => {
@@ -100,20 +103,20 @@ const BloodRequest = () => {
                     </div>
                   </div>
                   <div className="form-group">
-                    <select
+                    <Field as="select"
+                      name="bloodgroup" 
                       className="custom-select border-0 px-4"
-                      style={{ height: "47px" }}
-                    >
-                      <option value="0">Select A Blood Type</option>
-                      <option value="1">O+</option>
-                      <option value="2">AB+</option>
-                      <option value="3">A+</option>
-                      <option value="4">B+</option>
-                      <option value="5">O-</option>
-                      <option value="6">AB-</option>
-                      <option value="7">A-</option>
-                      <option value="8">B-</option>
-                    </select>
+                      style={{ height: "47px" }}>
+                    <option value="0">Select A Blood Type</option>
+                      <option value="O+">O+</option>
+                      <option value="AB+">AB+</option>
+                      <option value="A+">A+</option>
+                      <option value="B+">B+</option>
+                      <option value="O-">O-</option>
+                      <option value="AB-">AB-</option>
+                      <option value="A-">A-</option>
+                      <option value="B-">B-</option>
+                    </Field>
                   </div>
                   <div>
                     <button
