@@ -12,21 +12,47 @@ const initialValues = {
   email:'',
   name:'',
   city:'',
-  bloodgroup:''
+  blood_group:''
 }
 
 const validationSchema = Yup.object({
   name:Yup.string().required('Please enter name.'),
   city:Yup.string().required('Please enter city.'),
   email:Yup.string().email("Please enter a valid email.").required('Please enter your email.'),
-  bloodgroup:Yup.string().required('Please select blood group.')
+  blood_group:Yup.string().required('Please select blood group.')
 })
 
 
 
 const BloodRequest = () => {
-  const onSubmit = (values) => {
-    console.log("values",values);
+  const onSubmit = async (values) => {
+    
+    try {
+      
+      let formdata = new FormData();
+      formdata.append("name", values.name);
+      formdata.append("email", values.email);
+      formdata.append("blood_group", values.blood_group);
+      formdata.append("city", values.city);
+      const payload =  formdata;
+  
+      const response = await post(REQUEST_BLOOD, payload)
+      
+      if(response)
+      {
+        toast.success(response.message,{
+          position: "top-right",
+          autoClose: 2000,
+          hideProgressBar: false,
+          closeOnClick: true,
+          pauseOnHover: true,
+          draggable: true,
+          progress: undefined,
+          });
+      }
+    } catch (error) {
+      console.log(error);
+    }
   }
   return (
     <>
@@ -104,7 +130,7 @@ const BloodRequest = () => {
                   </div>
                   <div className="form-group">
                     <Field as="select"
-                      name="bloodgroup" 
+                      name="blood_group" 
                       className="custom-select border-0 px-4"
                       style={{ height: "47px" }}>
                     <option value="0">Select A Blood Type</option>

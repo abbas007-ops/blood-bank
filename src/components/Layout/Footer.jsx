@@ -10,8 +10,7 @@ const Footer = () => {
               <div className="col-md-6 mb-5">
                 <h3 className="text-primary mb-4">Get In Touch</h3>
                 <p>
-                  <i className="fa fa-map-marker-alt mr-2"></i>123 Street, New
-                  York, USA
+                  <i className="fa fa-map-marker-alt mr-2"></i>College road nashik maharashtra
                 </p>
                 <p>
                   <i className="fa fa-phone-alt mr-2"></i>+012 345 67890
@@ -43,12 +42,6 @@ const Footer = () => {
                   <a className="text-white mb-2" href="#">
                     <i className="fa fa-angle-right mr-2"></i>About Us
                   </a>
-                  <a className="text-white mb-2" href="#">
-                    <i className="fa fa-angle-right mr-2"></i>Our Services
-                  </a>
-                  <a className="text-white mb-2" href="#">
-                    <i className="fa fa-angle-right mr-2"></i>Pricing Plan
-                  </a>
                   <a className="text-white" href="#">
                     <i className="fa fa-angle-right mr-2"></i>Contact Us
                   </a>
@@ -59,9 +52,7 @@ const Footer = () => {
           <div className="col-lg-5 col-md-6 mb-5">
             <h3 className="text-primary mb-4">Newsletter</h3>
             <p>
-              Rebum labore lorem dolores kasd est, et ipsum amet et at kasd,
-              ipsum sea tempor magna tempor. Accu kasd sed ea duo ipsum. Dolor
-              duo eirmod sea justo no lorem est diam
+              Subscribe To Our Newsletter
             </p>
             <div className="w-100">
               <div className="input-group">

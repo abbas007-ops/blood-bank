@@ -11,6 +11,6 @@ export const LOGIN = `/user/login`;
 export const FORGET_PASSWORD = `/user/forgot-password`;
 export const RESET_PASSWORD = `/user/reset-password`;
 export const UPDATE_USER = `/user/profile`;
-export const REQUEST_BLOOD = ``;
+export const REQUEST_BLOOD = `/user/emergency`;
 
 //(GET_USERS())

@@ -3,12 +3,12 @@ import BannerImage from "../../components/bannerImage/BannerImage";
 import Card from "../../components/Card/Card";
 
 const About = () => {
-  const img_urls = ["team-1.jpg", "team-2.jpg", "team-3.jpg", "team-4.jpg"];
+  const img_urls = ["nishant.jpeg", "ashish.jpeg", "abbas.jpeg", "kunal.jpg"];
   return (
     <React.Fragment>
       <BannerImage />
     <div className="container-fluid py-5">
-      <div className="container">
+      {/* <div className="container">
         <div className="row align-items-center">
           <div className="col-lg-5 pb-4 pb-lg-0">
             <img
@@ -45,8 +45,8 @@ const About = () => {
             </div>
           </div>
         </div>
-      </div>
-      <div className="container-fluid bg-secondary my-5">
+      </div> */}
+      {/* <div className="container-fluid bg-secondary my-5">
         <div className="container">
           <div className="row align-items-center">
             <div className="col-lg-5">
@@ -95,15 +95,15 @@ const About = () => {
             </div>
           </div>
         </div>
-      </div>
+      </div> */}
 
       <div className="container-fluid pt-5">
         <div className="container">
           <div className="text-center pb-2">
             <h6 className="text-primary text-uppercase font-weight-bold">
-              Delivery Team
+              Developement Team
             </h6>
-            <h1 className="mb-4">Meet Our Delivery Team</h1>
+            <h1 className="mb-4">Meet Our Team</h1>
           </div>
           <div className="row">
             {img_urls.map((img_url, i) => (
