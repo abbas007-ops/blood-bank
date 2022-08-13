@@ -12,7 +12,8 @@ import BannerImage from "../../components/bannerImage/BannerImage";
 const initialValues = {
   username:'',
   email:'',
-  password:''
+  password:'',
+  user_type:''
 }
 
 const validationSchema = Yup.object({
@@ -31,6 +32,7 @@ const validationSchema = Yup.object({
       )
       .matches(/^(?=.{6,20}$)\D*\d/, "Must Contain One Number").required('Please enter your password.'),
   email:Yup.string().email("Please enter a valid email.").required('Please enter your email.'),
+  user_type:Yup.string().required('Please select user type.')
 })
 
 
@@ -43,6 +45,7 @@ const Register = () => {
       formdata.append("username", values.username);
       formdata.append("email", values.email);
       formdata.append("password", values.password);
+      formdata.append("user_type", values.user_type);
       const payload =  formdata;
   
       const response = await post(REGISTER, payload)
@@ -100,6 +103,20 @@ const Register = () => {
               <Field type="password" name="password" className="form-control border-0" />
               <div style={{color:'red'}}>
                 <ErrorMessage name="password"/>
+              </div>
+            </div>
+            <div className="form-group">
+              <label htmlFor="website">User Type *</label>
+              <Field as="select"
+                      name="user_type" 
+                      className="custom-select border-0 px-4"
+                      style={{ height: "47px" }}>
+                      <option>Select User Type</option>
+                      <option value="2">User</option>
+                      <option value="3">Hospital</option>
+                    </Field>
+              <div style={{color:'red'}}>
+                <ErrorMessage name="user_type"/>
               </div>
             </div>
 

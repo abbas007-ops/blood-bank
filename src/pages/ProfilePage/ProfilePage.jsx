@@ -51,7 +51,7 @@ const ProfilePage = () => {
     full_name:Yup.string().required('Please enter your full name.'),
     user_name:Yup.string().required('Please enter your user name.'),
     blood_group:Yup.string().required('Please enter your blood group.'),
-    contact_number:Yup.string().matches(phoneRegExp, 'Phone number is not valid').required("Please enter your contact number"),
+    contact_number:Yup.string().matches(phoneRegExp, 'Phone number is not valid').min(10, 'Phone no should be min 10 digits').max(12, 'Phone no should be max 12 digits').required("Please enter your contact number"),
     email:Yup.string().email("Please enter a valid email.").required('Please enter your email.'),
   })
 
@@ -156,11 +156,19 @@ const ProfilePage = () => {
             </div>
             <div className="form-group">
               <label htmtfor="name">Blood Group</label>
-              <Field
-                type="text"
-                name="blood_group"
-                className="form-control border-0"
-              />
+              <Field as="select"
+                      name="blood_group" 
+                      className="custom-select border-0 px-4"
+                      style={{ height: "47px" }}>
+                      <option value="O+">O+</option>
+                      <option value="AB+">AB+</option>
+                      <option value="A+">A+</option>
+                      <option value="B+">B+</option>
+                      <option value="O-">O-</option>
+                      <option value="AB-">AB-</option>
+                      <option value="A-">A-</option>
+                      <option value="B-">B-</option>
+                    </Field>
                <div style={{color:'red'}}>
                 <ErrorMessage name="blood_group"/>
               </div>
