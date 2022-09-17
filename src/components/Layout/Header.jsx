@@ -88,6 +88,9 @@ const Header = () => {
                   <NavLink to="/home" className="nav-item nav-link">
                     Home
                   </NavLink>
+                  <NavLink to="/donate_blood" className="nav-item nav-link">
+                    Donate Blood
+                  </NavLink>
                   <NavLink to="contact-us" className="nav-item nav-link">
                     Contact US
                   </NavLink>

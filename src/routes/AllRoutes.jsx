@@ -13,6 +13,7 @@ import ForgetPassword from "../pages/Authentication/ForgetPassword";
 import About from "../pages/About/About";
 import Contact from "../pages/Contact/Contact";
 import ResetPassword from "../pages/Authentication/ResetPassword";
+import DonateBlood from "../pages/Donate/donate";
 
 const AllRoutes = () => {
   return (
@@ -21,6 +22,7 @@ const AllRoutes = () => {
       <Route element={<Authmiddleware />}>
         <Route path="/home" element={<Dashboard />} />
         <Route path="/profile" element={<ProfilePage />} />
+        <Route path="/donate_blood" element={<DonateBlood />} />
         <Route path="/contact-us" element={<Contact />} />
       </Route>
 
